@@ -1,9 +1,12 @@
 let gridContainer = document.querySelector("#gridContainer");
+const GRID_WIDTH = 920;
+gridContainer.setAttribute("style","width: "+GRID_WIDTH+"px; height: "+GRID_WIDTH+"px;");
+let resetBtn = document.querySelector("button");
 let squares = [];
 
 function createGrid(squaresPerSide){
     let squareAmount = squaresPerSide * squaresPerSide;
-    sideLength = 500 / squaresPerSide;
+    sideLength = GRID_WIDTH / squaresPerSide;
     
     for(let i = 0; i<squareAmount; i++){
         squares.push(document.createElement("div"));
@@ -14,4 +17,8 @@ function createGrid(squaresPerSide){
     }
 }
 
-createGrid(100);
+resetBtn.addEventListener("click",()=>squares.forEach(element => {element.style.backgroundColor = "";}));
+
+let squaresPerSide = prompt("Enter amount of squares in grid side: ");
+if(squaresPerSide>100)  squaresPerSide=100;
+createGrid(squaresPerSide);
