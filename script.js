@@ -9,8 +9,9 @@ function createGrid(squaresPerSide){
         squares.push(document.createElement("div"));
         squares[i].setAttribute("class", "gridSquare");
         squares[i].setAttribute("style","width: "+sideLength+"px; height: "+sideLength+"px;");
+        squares[i].addEventListener("mouseleave", function (e) {e.currentTarget.style.backgroundColor = "black";});
         gridContainer.appendChild(squares[i]);
     }
 }
 
-createGrid(4);
+createGrid(100);
